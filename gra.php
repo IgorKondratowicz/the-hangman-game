@@ -80,6 +80,13 @@
             
         }
     }
+    if(isset($_POST['check'])){
+        if($_SESSION['points']==9){
+            for($i=0; $i<strlen($_SESSION['final_word']); $i++){
+                $_SESSION['checked'][$i] == $_SESSION['final_word'][$i];
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -127,7 +134,7 @@
     </div>
     <div class="pojemnik">
         <?php 
-        echo $_SESSION['photo'] < 9 ? '<img src = "img/s'.$_SESSION['photo'].'.jpg">': '<img src = "img/s9.jpg"><br>Niestety, przegrałeś :(';
+        echo $_SESSION['photo'] < 9 ? '<img src = "img/s'.$_SESSION['photo'].'.jpg">': '<img src = "img/s9.jpg"><br>Niestety, przegrałeś :(. Hasło to: '.$_SESSION['final_word'];
         echo ($win == True ? "<br>Zwycięstwoooo!" : "");
         ?>
     </div>
